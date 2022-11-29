@@ -24,7 +24,7 @@
                     $('#result').html(res);
                 },
                 error: function(xhr, ajaxOption, thrownError) {
-                    $('#result').hrml(`Error: ${xhr.status} ${thrownError}`);
+                    $('#result').html(`Error: ${xhr.status} ${thrownError}`);
                 }
             })
         }
