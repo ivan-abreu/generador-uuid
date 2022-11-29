@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de UUID</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>Identificador Unico Universal (UUID)</h1>
+        <button onclick="getUuid()">Generar</button>
+        <h4 id="result"></h4>
+    </div>
+
+    <script>
+        function getUuid() {
+            $.ajax({
+                url: "http://127.0.0.1/api/get-uuid",
+                type: 'GET',
+                success: function(res) {
+                    console.log(res);
+                    $('#result').html(res);
+                },
+                error: function(xhr, ajaxOption, thrownError) {
+                    $('#result').hrml(`Error: ${xhr.status} ${thrownError}`);
+                }
+            })
+        }
+        
+    </script>
+    
+</body>
+
+
+</html>
